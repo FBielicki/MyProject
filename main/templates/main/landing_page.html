@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        <h1 class="mb-1">School helper</h1>
+
+        {% if not request.user.is_authenticated %}
+            <h3 class="mb-5">
+                <em>Improve your school performance</em>
+            </h3>
+            <a class="btn btn-info btn-xl js-scroll-trigger " href="{% url 'login' %}">LOGIN</a>
+            <a class="btn btn-info btn-xl js-scroll-trigger" href="{% url 'register' %}">REGISTER</a>
+        {% else %}
+            <h3 class="mb-5">
+                <em>Hi {{ request.user.first_name }}!</em>
+            </h3>
+
+            <a class="btn btn-info btn-xl js-scroll-trigger" href="{% url 'dashboard' %}">DASHBOARD</a>
+        {% endif %}
+         </div>
+    <div class="overlay"></div>
+</header>
+{% endblock %}

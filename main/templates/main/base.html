@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>School Helper</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body id="page-top">
+<!-- Navigation -->
+<a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+</a>
+<nav id="sidebar-wrapper" class ="navbar-dark bg-primary">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="{% url 'landing_page' %}">School Helper</a>
+        </li>
+        {% if request.user.is_authenticated %}
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'dashboard' %} ">Dashboard</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'teachers'%}">My Teachers</a>
+            </li>
+            <li class="sidebar-nav-item">
+             <button class="sidebar-nav-item dropdown-btn ">Account
+            <i id="fa-caret-down" class="fa fa-caret-down"></i>
+                 </button>
+            <div id="dropdown-container" class="dropdown-container">
+            <div><a href="{% url 'edit'%}">Edit personal Information</a></div>
+            <div><a href="{% url 'change_password'%}">Change Password</a></div>
+            </div>
+                <hr class="hr-white" />
+                <a id="logout-button" class="js-scroll-trigger btn btn-outline-primary" href="{% url 'logout' %}"><em>Logout</em></a>
+                </div>
+            </li>
+        {% else %}
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'register' %}">Register</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+
+<!-- CONTENT -->
+
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+        <ul class="list-inline mb-5">
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/fabian.bielicki.94/">
+                    <i class="icon-social-facebook"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/fabi_bie/">
+                    <i class="icon-social-instagram"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white" href="https://github.com/FabibixD">
+                    <i class="icon-social-github"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="text-muted small mb-0">Copyright &copy; Fabian Bielicki 2019</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

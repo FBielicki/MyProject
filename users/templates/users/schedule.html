@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<header class="callout">
+
+    <div class="container">
+        <div class="card card-signin">
+            <div class="card-body">
+                <h3 class="text-center">Dashboard</h3>
+                <div>&nbsp;</div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-signin">
+                            <div>
+                                {% for c in change %}
+                                {{ c }} |||
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock %}

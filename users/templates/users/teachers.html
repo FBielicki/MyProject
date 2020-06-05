@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<header class="masthead-2 d-flex">
+
+    <div class="container text-center my-auto">
+        <div class="container">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-3">
+                    <div>&nbsp;</div>
+                    <h2>My Teachers</h2>
+                    <hr>
+                    <label>
+                        <form action="" method="POST" class="form">
+                            {% csrf_token %}
+                            {% if teachers %}
+                            <h5>No Teachers in Database</h5>
+                            {% else %}
+                            <h5> Select your teachers:</h5>
+                            <div>{{ form.courses }}</div>
+                            {% endif %}
+
+                            <p>
+                            <h5>Email Notifications: {{ form.is_subscribing }}</h5>
+                            <hr>
+                            <div><input class="btn btn-outline-primary" type="submit" value="SAVE"></div>
+                        </form>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    </div>
+</header>
+{% endblock %}

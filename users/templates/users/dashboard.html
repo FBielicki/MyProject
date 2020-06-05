@@ -1,0 +1,81 @@
+{% extends  "main/base.html" %}
+{% block content %}
+<header class="masthead-3 d-flex">
+
+    <div class="container">
+        <div class="card card-signin">
+            <div class="card-body">
+                <h3 class="text-center">Dashboard</h3>
+                <div>&nbsp;</div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-signin">
+                            <div class="card-body">
+
+                                <h5 class="text-uppercase text-warning">{{ request.user.username }}</h5>
+                                <em class="font-weight-light">First name</em>
+                                <p> {{ request.user.first_name }}</p>
+                                <hr>
+                                <em class="font-weight-light">Last name</em>
+                                <p>{{ request.user.last_name }}</p>
+                                <hr />
+
+                                <div class="text-center">
+                                <a href="{% url 'edit' %}" class="btn btn-outline-primary">Edit</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card card-signin">
+                            <div class="card-body">
+
+                                <h5>Account Information</h5>
+                                <em class="font-weight-light">Email Address</em>
+                                <p>{{ request.user.email }}</p>
+                                <hr>
+                                <em class="font-weight-light">Email Notifications</em>
+                                <p> {% if request.user.is_subscribing %} On :)
+                                    {% else %} Off :(
+                                    {% endif %}</p>
+                                <hr/>
+
+                                <div class="text-center">
+                                <a href="{% url 'change_password' %}" class="btn btn-outline-primary">Change Password</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div> &nbsp; </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-signin">
+                                <div class="card-body">
+                                    {% if request.user.courses.all %}
+
+                                    <h5>Your Teachers</h5>
+                                    {% for teacher in request.user.courses.all %}
+                                    [{{ teacher.first_name }}
+                                    <b>
+                                    {{ teacher.last_name }}</b>] •
+                                    {% endfor %}
+
+                                    <div><p></p></div>
+                                    <a href="{% url 'teachers' %}" class="btn btn-outline-primary btn-block">Edit Teachers</a>
+                                </div></div></div></div>
+                    {% else %}
+                    <h5>No Teachers selected</h5>
+                    <div>&nbsp;</div>
+                    <a href="{% url 'teachers' %}" class="btn btn-outline-primary btn-block">Add Teachers</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
