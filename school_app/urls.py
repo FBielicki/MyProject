@@ -11,7 +11,8 @@ from users.views import (
     TeacherView,
     ChangePasswordView,
     ScheduleView,
-    SendScheduleView
+    SendScheduleView,
+    HelpView
 )
 
 # all accasable urls
@@ -26,5 +27,6 @@ urlpatterns = [
     path('edit/', ChangeView.as_view(), name='edit'),
     path('change_password/', ChangePasswordView.as_view(), name='change_password'),
     path('schedule/', ScheduleView.as_view(), name='schedule'),
-    path('send_schedule/', SendScheduleView.as_view())
+    path('send_schedule/', SendScheduleView.as_view()),
+    path('info/', HelpView.as_view(), name='info')
 ]

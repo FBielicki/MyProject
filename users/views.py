@@ -12,7 +12,7 @@ from django.urls import reverse
 from utils.views import UserLoggedInRedirectMixin, LoginRequiredMixin
 from .forms import LoginForm, RegistrationForm, TeacherForm, ChangeForm
 from django.views import View
-
+from django.views.generic import TemplateView
 from users.forms import (
     LoginForm,
     RegistrationForm,
@@ -174,3 +174,7 @@ class SendScheduleView(LoginRequiredMixin, View):
         send_mail(subject, message, from_email, to_list, fail_silently=False)
 
         return render(request, 'users/schedule.html')
+
+class HelpView(TemplateView):
+
+    template_name = 'users/help.html'

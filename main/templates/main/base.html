@@ -41,6 +41,9 @@
                 <a class="js-scroll-trigger" href="{% url 'teachers'%}">My Teachers</a>
             </li>
             <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'info' %}">Info</a>
+            </li>
+            <li class="sidebar-nav-item">
              <button class="sidebar-nav-item dropdown-btn ">Account
             <i id="fa-caret-down" class="fa fa-caret-down"></i>
                  </button>
@@ -59,7 +62,11 @@
             <li class="sidebar-nav-item">
                 <a class="js-scroll-trigger" href="{% url 'register' %}">Register</a>
             </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="{% url 'info' %}">Info</a>
+            </li>
         {% endif %}
+
     </ul>
 </nav>
 
